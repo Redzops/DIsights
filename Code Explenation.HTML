@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Explanation</title>
+    <style>
+        body {
+            background-color: red;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        h1, h2, code {
+            color: black;
+        }
+        code {
+            font-size: 1.2em; /* Set font size to 1.2 times the default size */
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Code Explanation</h1>
+
+    <h2>Imports</h2>
+    <pre>
+        <code>import os</code>
+        <code>from collections import Counter</code>
+        <code>import nltk</code>
+        <code>from nltk.tokenize import word_tokenize</code>
+        <code>from nltk.corpus import stopwords</code>
+        <code>nltk.download('punkt')</code>
+        <code>nltk.download('stopwords')</code>
+    </pre>
+
+    <h2>Main Function</h2>
+    <pre>
+        <code>def get_most_used_words(directory):</code>
+        <code>    word_freq_counter = Counter()  # Initialize a Counter to keep track of word frequencies</code>
+        <code>    stop_words = set(stopwords.words('english'))  # Define a set of stopwords</code>
+        <code>    for filename in os.listdir(directory):  # Iterate through each file in the specified directory</code>
+        <code>        if filename.endswith(".txt"):  # Process only files with the ".txt" extension</code>
+        <code>            file_path = os.path.join(directory, filename)  # Get the full path to the file</code>
+        <code>            with open(file_path, 'r', encoding='utf-8') as file:  # Open the file for reading</code>
+        <code>                content = file.read()  # Read the content of the file</code>
+        <code>                words = word_tokenize(content.lower())  # Tokenize the text into words, convert to lowercase</code>
+        <code>                filtered_words = [word for word in words if word.isalnum() and word not in stop_words]  # Filter out stopwords</code>
+        <code>                word_freq_counter.update(filtered_words)  # Update word frequencies</code>
+        <code>    most_common_words = word_freq_counter.most_common(10)  # Get the most common words and their frequencies</code>
+        <code>    return most_common_words</code>
+    </pre>
+
+    <h2>Example Usage</h2>
+    <pre>
+        <code>directory_path = r"C:\Users\yourusername\DIsights\documents"</code>
+        <code>result = get_most_used_words(directory_path)</code>
+        <code>for word, frequency in result:</code>
+        <code>    print(f"{word}: {frequency} times")</code>
+    </pre>
+
+</body>
+</html>

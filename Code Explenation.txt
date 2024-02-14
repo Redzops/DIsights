@@ -1,0 +1,20 @@
+import os
+from collections import Counter
+import nltk
+from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
+
+nltk.download('punkt')
+nltk.download('stopwords')
+
+1.import os: This line imports the Python os module, which provides a way to interact with the operating system, allowing you to perform operations like reading directory contents.
+
+2.from collections import Counter: This line imports the Counter class from the Python collections module. Counter is a convenient data structure for counting occurrences of elements.
+
+3.import nltk: This line imports the Natural Language Toolkit (NLTK), a powerful library for working with human language data.
+
+4.from nltk.tokenize import word_tokenize: This line imports the word_tokenize function from the NLTK library, which is used for tokenizing text into words.
+
+5.from nltk.corpus import stopwords: This line imports the NLTK stop words corpus, which contains common words that are often filtered out in text analysis tasks.
+
+6.nltk.download('punkt') and nltk.download('stopwords'): These lines download the NLTK data required for tokenization and stop words. They are typically run once to download the necessary resources.
